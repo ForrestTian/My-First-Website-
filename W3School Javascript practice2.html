@@ -1,0 +1,544 @@
+<!DOCTYPE html >
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>w3school practice</title>
+  </head>
+
+  <body>s
+    <div class="1">
+      <h1> JavaScript if</h1>
+      <p> Display 'Good day' if the hour is less than 18:00</p>
+      <p id='1'> Good Evening </p>.
+      <script type="text/javascript">
+        if (new Date().getHours()<18){
+        document.getElementById('1').innerHTML='Good day!';
+      }
+      </script>
+
+        <h2> If and else if</h2>
+        <p> greeting time-based </p>
+        <p id='2'>Good Evening</p>
+        <script type="text/javascript">
+        const time=new Date().getHours()
+        let greeting
+          if (time<10){
+            greeing='Good Morning'
+          }else if (time<20){
+            greeting='Good Day'
+          }else{
+            greeting='Get Evening'
+          }
+          document.getElementById('2').innerHTML=greeting;
+        </script>
+
+        <h3>Javascript switch </h3>
+        <p> case by case</p>
+        <p id='3'></p>
+        <script type="text/javascript">
+          let day;
+          switch (new Date().getDay()) {
+            case 0:
+            day='Sunday';
+            break;
+            case 1:
+            day='Monday';
+            break;
+            case 2:
+            day='Tuesday';
+            break;
+            case 3:
+            day='Wednsday';
+            break;
+            case 4:
+            day='Thuesday';
+            break;
+            case 5:
+            day='Friday';
+            break;
+            case 6:
+            day='Saturday'
+            break;
+            }
+            document.getElementById('3').innerHTML='Today is '+day;
+        </script>
+
+        <h4> Javascrip For Loop</h4>
+        <p id="4"></p>
+        <script type="text/javascript">
+        const cars=['BMW','Volvo','Saab','Fiat','Audi','Benz','Ford']
+        let text='';
+        for (let i=0;i < cars.length;i++){
+          text += cars[i]+'<br />';
+        }
+        document.getElementById('4').innerHTML=text;
+        </script>
+
+        <h5> Javascrip While loop</h5>
+        <p> While condition is ture, it will excute</p>
+        <p id="5"></p>
+        <script type="text/javascript">
+          let text = "";
+          let i=0;
+          do {
+            text += "The number is " + i;
+            i++;
+        }
+        while(i<10);
+        document.getElementById("demo").innerHTML = text;
+        </script>
+
+        <h6> while loop conbine for loop</h6>
+        <p>for in loop? </p>
+        <p id="6"> </p>
+        <script>
+        const cars = ["BMW", "Volvo", "Saab", "Ford"];
+        let i = 0;
+        let text = "aaaa";
+        while (cars[i]) {
+          text += cars[i] + "<br>";
+          i++;
+        }
+        document.getElementById("6").innerHTML = text;
+      </script>
+    </div>
+
+
+      <div class="">
+        <h1>JavaScript Try Catch error and throw the reflect</h1>
+        <p>Please input a number 5-10 </p>
+        <input id="7" type="test" >
+        <button type="button" name="button" onclick="myFunction2()">Test Input</button>
+        <p id="8">haha!</p>
+        <script>
+        function myFunction2(){
+          const message=document.getElementById('8');
+          message.innerHTML='';
+          let x=document.getElementById('7').value;
+          try {
+            if(x=='') throw 'empty';
+            if(isNaN(x)) throw 'not a number';
+            x=Number(x);
+            if(x<5) throw 'too low';
+            if(x>10) throw 'too high';
+          }
+          catch(err){
+            message.innerHTML='Input is ' + err;
+          }
+        }
+
+        </script>
+
+        <h2>JavaScript setInterval()</h2>
+
+         <p>Using setInterval() to display the time every second (1000 milliseconds).</p>
+
+         <h1 id="8"></h1>
+
+          <script>
+          setInterval(myFunction, 1000);
+
+          function myFunction() {
+          let d = new Date();
+          document.getElementById("8").innerHTML=
+          d.getFullYear() + "." +
+          (d.getMonth() + 1) +"." +
+          d.getDate() + ";" +"<br>"+
+          d.getHours() + ":" +
+          d.getMinutes() + ":" +
+          d.getSeconds();
+          //d.getMilliseconds();
+
+          }
+          </script>
+
+          <h3>JavaScript Callbacks</h3>
+
+          <p id="9"></p>
+
+          <script>
+          function myDisplayer(some) {
+            document.getElementById("9").innerHTML = some;
+          }
+
+          function getFile(myCallback) {
+            let req = new XMLHttpRequest();
+            req.open('GET', "mycar.html");
+            req.onload = function() {
+              if (req.status == 200) {
+                myCallback(this.responseText);
+              } else {
+                myCallback("Error: " + req.status);
+              }
+            }
+            req.send();
+          }
+
+          getFile(myDisplayer);
+          </script>
+
+        <!-- <img src="img_car.jpg" alt="Nice car" style="width:100%">
+
+          <p>A car is a wheeled, self-powered motor vehicle used for transportation.
+          Most definitions of the term specify that cars are designed to run primarily
+          on roads, to have seating for one to eight people, to typically have
+          four wheels.</p>
+
+          <p>(Wikipedia)</p> -->
+          <h4>JavaScript Promise</h4>
+
+          <p id="10"></p>
+
+          <script>
+          function myDisplayer(some) {
+            document.getElementById("10").innerHTML = some;
+          }
+
+          let myPromise = new Promise(function(myResolve, myReject) {
+            let x = 5;
+
+          // some code (try to change x to 5)
+
+            if (x == 5) {
+              myResolve=("OK");
+            } else {
+              myReject("Error");
+            }
+          });
+
+          myPromise.then(
+            function(value) {myDisplayer(value);},
+            function(error) {myDisplayer(error);}
+          );
+          </script>
+
+          <h5>JavaScript Promise</h5>
+
+          <p id="11"></p>
+
+          <script type="text/javascript">
+            document.getElementById('11').innerHTML=src.car.html;
+            // howe to use exterior ink??
+          </script>
+
+          <h6>JavaScript async / await</h6>
+
+          <p>Wait 3 seconds (3000 milliseconds) for this page to change.</p>
+
+        </div>
+
+        <div class="">
+
+          <h1 id="12"></h1>
+
+          <script>
+          async function myDisplay() {
+            let myPromise = new Promise(function(resolve) {
+              setTimeout(function() {resolve("I love You !!");}, 3000);
+            });
+            document.getElementById("12").innerHTML = await myPromise;
+          }
+
+          myDisplay();
+          </script>
+
+          <script>
+          function validateForm() {
+            let x = document.forms["myForm"]["fname"].value;
+            if (x == "") {
+              alert("Name must be filled out");
+              return false;
+            }
+          }
+          </script>
+
+
+          <h2>JavaScript Validation</h2>
+
+          <form name="myForm" action="/action_page.php"
+          onsubmit="return validateForm()" method="post">
+            Name: <input type="text" name="fname">
+            <input type="submit" value="Submit">
+          </form>
+
+
+
+          <h3> Cookie </h3>
+         <script type="text/javascript">
+
+
+          function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+          }
+
+          function getCookie(cname) {
+            let name = cname + "=";
+            let ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+              let c = ca[i];
+              while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+              }
+              if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+              }
+            }
+            return "";
+          }
+
+          function checkCookie() {
+            let user = getCookie("username");
+            if (user != "") {
+              alert("Welcome again " + user);
+            } else {
+              user = prompt("Please enter your name:", "");
+              if (user != "" && user != null) {
+                setCookie("username", user, 365);
+              }
+            }
+          }
+         </script>
+
+         <h4>JavaScript Geolocation API</h4>
+          <p>Click the button to get your coordinates.</p>
+
+          <button onclick="getLocation()">Try It</button>
+
+          <p id="demo"></p>
+
+          <script>
+          const x = document.getElementById("demo");
+
+          function getLocation() {
+            if (navigator.geolocation) {
+              navigator.geolocation.watchPosition(showPosition);
+            } else {
+              x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+          }
+
+          function showPosition(position) {
+              x.innerHTML="Latitude: " + position.coords.latitude +
+              "<br>Longitude: " + position.coords.longitude;
+          }
+          </script>
+
+          <h5> JS line plot</h5>
+
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+      <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+      <script>
+      var xValues = [50,60,70,80,90,100,110,120,130,140,150];
+      var yValues = [7,8,8,9,9,9,10,11,14,14,15];
+
+      new Chart("myChart", {
+        type: "line",
+        data: {
+          labels: xValues,
+          datasets: [{
+            fill: false,
+            lineTension: 0,
+            backgroundColor: "rgba(0,0,255,1.0)",
+            borderColor: "rgba(0,0,255,0.1)",
+            data: yValues
+          }]
+        },
+        options: {
+          legend: {display: false},
+          scales: {
+            yAxes: [{ticks: {min: 6, max:16}}],
+          }
+        }
+      });
+      </script>
+
+      <h6> JS Multple line</h6>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+      <body>
+      <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+      <script>
+      var xValues = [100,200,300,400,500,600,700,800,900,1000];
+
+      new Chart("myChart", {
+        type: "line",
+        data: {
+          labels: xValues,
+          datasets: [{
+            data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+            borderColor: "red",
+            fill: false
+          }, {
+            data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
+            borderColor: "green",
+            fill: false
+          }, {
+            data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+            borderColor: "blue",
+            fill: false
+          }]
+        },
+        options: {
+          legend: {display: false}
+        }
+      });
+      </script>
+     </div>
+
+      <div class="">
+        <h1> AJAX for example</h1>
+        <button type="button" onclick="loadXMLDoc()">Get my CD collection</button>
+        <br><br>
+        <table id="demo"></table>
+
+        <script>
+        function loadXMLDoc() {
+          const xhttp = new XMLHttpRequest();
+          xhttp.onload = function() {
+            const xmlDoc = xhttp.responseXML;
+            const cd = xmlDoc.getElementsByTagName("CD");
+            myFunction(cd)
+          }
+          xhttp.open("GET", "cd_catalog.xml");
+          xhttp.send();
+        }
+
+        function myFunction(cd) {
+          let table="<tr><th>Artist</th><th>Title</th></tr>";
+          for (let i = 0; i < cd.length; i++) {
+            table += "<tr><td>" +
+            cd[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+            "</td><td>" +
+            cd[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+            "</td></tr>";
+          }
+          document.getElementById("demo").innerHTML = table;
+        }
+        </script>
+
+
+        <h2>AJAX application</h2>
+        <p>Click on a CD to display album information.</p>
+      <p id='showCD'></p>
+      <table id="demo"></table>
+
+      <script>
+      const xhttp = new XMLHttpRequest();
+      let cd;
+      xhttp.onload = function() {
+       const xmlDoc = xhttp.responseXML;
+       cd = xmlDoc.getElementsByTagName("CD");
+       loadCD();
+      }
+      xhttp.open("GET", "cd_catalog.xml");
+      xhttp.send();
+
+      function loadCD() {
+        let table="<tr><th>Artist</th><th>Title</th></tr>";
+        for (let i = 0; i < cd.length; i++) {
+          table += "<tr onclick='displayCD(" + i + ")'><td>";
+          table += cd[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue;
+          table += "</td><td>";
+          table += cd[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue;
+          table += "</td></tr>";
+        }
+        document.getElementById("demo").innerHTML = table;
+      }
+
+      function displayCD(i) {
+        document.getElementById("showCD").innerHTML =
+        "Artist: " +
+        cd[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+        "<br>Title: " +
+        cd[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+        "<br>Year: " +
+        cd[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
+      }
+      </script>
+
+      <h3>Make a drop down list based on JSON data.</h3>
+      <p id="demo"></p>
+
+      <script>
+      const dbParam = JSON.stringify({table:"customers",limit:20});
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.onload = function() {
+        const myObj = JSON.parse(this.responseText);
+        let text = "<select>"
+        for (let x in myObj) {
+          text += "<option>" + myObj[x].name + "</option>";
+        }
+        text += "</select>"
+        document.getElementById("demo").innerHTML = text;
+      }
+      xmlhttp.open("POST", "json_demo_html_table.php");
+      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xmlhttp.send("x=" + dbParam);
+      </script>
+
+      <h4>HTML option</h4>
+      <select id="myselect" onchange="change_myselect(this.value)">
+        <option value="">Choose an option:</option>
+        <option value="customers">Customers</option>
+        <option value="products">Products</option>
+        <option value="suppliers">Suppliers</option>
+      </select>
+
+      <script>
+      function change_myselect(sel) {
+        const dbParam = JSON.stringify({table:sel,limit:20});
+        const xmlhttp = new XMLHttpRequest();
+        xmlhttp.onload = function() {
+          const myObj = JSON.parse(this.responseText);
+          let text = "<table border='1'>"
+          for (let x in myObj) {
+            text += "<tr><td>" + myObj[x].name + "</td></tr>";
+          }
+          text += "</table>"
+          document.getElementById("demo").innerHTML = text;
+        }
+        xmlhttp.open("POST", "json_demo_html_table.php");
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("x=" + dbParam);
+      }
+      </script>
+
+      <h5> JQuery for CSS effect </h5>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      </head>
+      <body>
+
+      <h2>Show HTML Elements</h2>
+      <p id="01" style="display:none">Hello World!</p>
+      <p id="02" style="display:none">Hello Sweden!</p>
+      <p id="03" style="display:none">Hello Japan!</p>
+
+      <script>
+      $(document).ready(function() {
+        $("#01").show();
+      });
+      </script>
+
+      <h6> herf practice</h6>
+      <p> This will be interesting</p>
+      <a href="mycar.html"> Click here, link interor material html resource</a>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
